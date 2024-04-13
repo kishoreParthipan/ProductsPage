@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .grid-container {
+            height: 250vh;
+            display: grid;
+            grid-template-columns: 1.1fr 1.1fr 1.1fr 1.1fr;
+            grid-template-rows: 8fr 8fr 8fr 8fr;
+
+            /* grid-template-rows: 1fr 1fr 1fr 1fr; */
+            column-gap: 4px;
+            row-gap: 4px;
+            margin: 0;
+            border: 5px soild rgb(14, 13, 13);
+            background-color: rgb(240, 235, 235);
+            /* place-items: center; */
+
+            /* background-color: aquamarine; */
+
+
+
+
+        }
+
+        .grid-container>div {
+            color: white;
+            font-size: 3rem;
+            /* place-content:center; */
+            /* place-items: center; */
+            /* padding: 4rem; */
+            background-color: white;
+            border-radius: 10px;
+
+            /* place-items: center; */
+
+        }
+
+        .first-image {
+            padding-bottom: 1px;
+            display: block;
+            border-radius: 20px;
+            width: 100%;
+            height: 140px;
+            object-fit: contain;
+            /* margin-left: auto;
+            margin-right: auto; */
+
+
+
+
+            /* justify-self: start; */
+}
+
+
+
+        .first-shirt {
+            font-size: xx-small;
+        }
+
+        .image-wrapper {
+            position: relative;
+
+        }
+        
+
+        .overylay_1 {
+            position: absolute;
+            background-color: #08b7fc;
+
+        }
+
+        .overylay_2 {
+            position: absolute;
+            background-color: #08b7fc;
+
+        }
+
+        .icon1 {
+
+            position: absolute;
+            display: flex;
+            top: 0;
+            right: 0;
+            align-items: start;
+            justify-content: flex-end;
+            padding: 8px;
+            padding-right: 10px;
+            text-decoration: none
+        }
+
+        .icon2 {
+
+            position: absolute;
+            display: flex;
+            top: 0;
+            right: 0;
+            align-items: start;
+            justify-content: flex-end;
+            padding: 8px;
+            padding-right: 10px;
+            margin-top: 40px;
+            text-decoration: none
+        }
+
+        .icon1 i {
+            border-radius: 20px;
+            font-size: 15px;
+            color: #b6b4b4;
+            padding: 4px 4px 4px 4px;
+            background-color: rgb(248, 246, 246);
+        }
+
+        .icon2 i {
+            border-radius: 20px;
+            font-size: 15px;
+            color: #b6b4b4;
+            padding: 4px 4px 4px 4px;
+            background-color: rgb(248, 246, 246);
+        }
+
+        .tag {
+            display: flex;
+            justify-items: flex-start;
+            align-items: center;
+            /* margin-bottom: 20px; */
+            padding-bottom: 8px;
+            padding-left: 8px;
+        }
+
+        .tag-text {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: small;
+            padding: 4px 6px 4px 6px;
+            background-color: rgba(6, 155, 98, 0.651);
+            border-radius: 5px;
+
+        }
+
+        .text {
+            color: #4d4949;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+            padding-left: 8px;
+            font-size: 12px;
+            align-items: center;
+            padding-bottom: 10px;
+        }
+
+        .checked {
+            /* padding-right: 5px; */
+            color: gold;
+        }
+
+        .rating-star {
+            display: flex;
+            /* display: inline-block; */
+            width: fit-content;
+            justify-items: flex-start;
+            align-items: center;
+            padding: 4px 4px 4px 4px;
+            border-radius: 5px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            border: 5px soild rgb(15, 15, 15);
+            border: 1px solid #08b7fc;
+        }
+
+        .ratings {
+            color: #a39e9e;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+
+        }
+
+        .price {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 8px;
+
+        }
+
+        .price-text {
+            color: #000;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: large;
+            padding-left: 5px;
+            font-weight: bolder;
+            color: #087c46;
+            /* padding-bottom: 25px; */
+
+
+        }
+
+        .price-text s {
+            color: rgb(206, 203, 203);
+        }
+
+        *hr {
+            border: 1px solid rgb(227, 229, 231);
+
+            background-color: rgb(227, 229, 231);
+            ;
+        }
+
+        .button {
+            display: flex;
+
+            height: 50px;
+            margin-top: 25px;
+            padding-left: 5px;
+            padding-right: 8px;
+
+            /* grid-template-columns: 1fr 4fr; */
+            /* grid-template-rows: 5fr ; */
+            /* background-color: #FFD43B; */
+            /* border: 2px soild rgb(11, 212, 179); */
+            /* place-items: center; */
+            /* justify-content: center;
+            align-items: center; */
+            /* border: 2px solid rgb(211, 216, 215); */
+            margin-bottom: 10px;
+
+
+            /* background-color: rgb(137, 18, 153); */
+
+        }
+
+        .left-flipkarticon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70px;
+            border: 2px solid rgb(11, 146, 146);
+            border-radius: 5px 0 0 5px;
+
+        }
+
+        .right-buynowbtn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            background-color: rgb(11, 146, 146);
+            border-radius: 0 5px 5px 0;
+        }
+
+        .flipkart-image {
+            /* padding-left: 15px;
+            place-items: center; */
+            width: auto;
+            height: 30px;
+
+        }
+
+        .buynowbtn {
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            font-size: medium;
+            font-weight: bolder;
+        }
+
+        @media only screen and (max-width:640px) {
+            .grid-container {
+                grid-template-columns: 1fr 1fr 1fr;
+
+            }
+
+        }
+
+        @media only screen and (max-width:380px) {
+            .grid-container {
+                grid-template-columns: 1fr 1fr;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/m/d/9/3xl-db1029-42-3bros-original-imagwcb9fgzde7zg.jpeg?q=70">
+                <div class="overlay overlay_1" ><a href="/share" class="icon1" style="background-color: #08b7fc;"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2" ><a href="/like" class="icon2" style="background-color: #087c46;"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Polo Plus</div>
+            </div>
+
+            <div class="text">Men Striped Polo Neck Cotton Blend (220 gsm) Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4.1</strong> (14,179)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;329 <s>&#8377;999</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/6/0/j/3xl-db1029-42-3bros-original-imagwcb993ynvp5s.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">3BROS</div>
+            </div>
+
+            <div class="text">Men Striped Polo Neck Cotton Blend (220 gsm) Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4.1</strong> (14,179)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;329 <s>&#8377;999</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/e/n/b/m-9453-olive-e-max-original-imagnfwjvxy6x3xz.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Polo Plus</div>
+            </div>
+
+            <div class="text">Men Striped Polo Neck Cotton Blend (220 gsm) Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4.1</strong> (14,179)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;329 <s>&#8377;999</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/l/q/c/m-9453-olive-e-max-original-imagnfwjt5qzpguw.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Polo Plus</div>
+            </div>
+
+            <div class="text">Men Typography, Colorblock Crew Neck Polyester Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4</strong> (3,553)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;348 <s>&#8377;1,299</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/kyeqjrk0/t-shirt/9/r/2/m-p67-blkgry-leotude-original-imaganb8nmfwchtw.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Roadster</div>
+            </div>
+
+            <div class="text">Pack of 2 Men Solid V Neck Cotton Blend Black, Grey T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 3.7</strong> (1,276)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;627 <s>&#8377;1,099</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/m/d/9/3xl-db1029-42-3bros-original-imagwcb9fgzde7zg.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Alan Jones</div>
+            </div>
+
+            <div class="text">Men Solid Polo Neck Poly Cotton (230 gsm) Dark Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4</strong> (29,039)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;469 <s>&#8377;999</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/kr9jafk0/t-shirt/q/l/s/xl-709-1-709-12-ftx-original-imag539mgd9jph3c.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">FTX</div>
+            </div>
+
+            <div class="text">Pack of 2 Men Solid Round Neck Polyester Black, Grey T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4.1</strong> (2,284)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;331 <s>&#8377;799</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/m/d/9/3xl-db1029-42-3bros-original-imagwcb9fgzde7zg.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Polo Plus</div>
+            </div>
+
+            <div class="text">Men Striped Polo Neck Cotton Blend (220 gsm) Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4.1</strong> (14,179)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;329 <s>&#8377;999</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/m/d/9/3xl-db1029-42-3bros-original-imagwcb9fgzde7zg.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Polo Plus</div>
+            </div>
+
+            <div class="text">Men Striped Polo Neck Cotton Blend (220 gsm) Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4.1</strong> (14,179)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;329 <s>&#8377;999</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/m/d/9/3xl-db1029-42-3bros-original-imagwcb9fgzde7zg.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Polo Plus</div>
+            </div>
+
+            <div class="text">Men Striped Polo Neck Cotton Blend (220 gsm) Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4.1</strong> (14,179)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;329 <s>&#8377;999</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/m/d/9/3xl-db1029-42-3bros-original-imagwcb9fgzde7zg.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Polo Plus</div>
+            </div>
+
+            <div class="text">Men Striped Polo Neck Cotton Blend (220 gsm) Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4.1</strong> (14,179)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;329 <s>&#8377;999</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/m/d/9/3xl-db1029-42-3bros-original-imagwcb9fgzde7zg.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Polo Plus</div>
+            </div>
+
+            <div class="text">Men Striped Polo Neck Cotton Blend (220 gsm) Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4.1</strong> (14,179)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;329 <s>&#8377;999</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/m/d/9/3xl-db1029-42-3bros-original-imagwcb9fgzde7zg.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Polo Plus</div>
+            </div>
+
+            <div class="text">Men Striped Polo Neck Cotton Blend (220 gsm) Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4.1</strong> (14,179)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;329 <s>&#8377;999</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/m/d/9/3xl-db1029-42-3bros-original-imagwcb9fgzde7zg.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Polo Plus</div>
+            </div>
+
+            <div class="text">Men Striped Polo Neck Cotton Blend (220 gsm) Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4.1</strong> (14,179)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;329 <s>&#8377;999</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/m/d/9/3xl-db1029-42-3bros-original-imagwcb9fgzde7zg.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Polo Plus</div>
+            </div>
+
+            <div class="text">Men Striped Polo Neck Cotton Blend (220 gsm) Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4.1</strong> (14,179)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;329 <s>&#8377;999</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="first-shirt">
+            <div class="image-wrapper">
+                <img class="first-image"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/m/d/9/3xl-db1029-42-3bros-original-imagwcb9fgzde7zg.jpeg?q=70">
+                <div class="overlay overlay_1"><a href="#" class="icon1"> <i class="fas fa-share"></i></a></div>
+                <div class="overlay overlay_2"><a href="#" class="icon2"> <i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="tag">
+                <div class="tag-text">Polo Plus</div>
+            </div>
+
+            <div class="text">Men Striped Polo Neck Cotton Blend (220 gsm) Green T-Shirt</div>
+
+            <div class="rating-star">
+                <div class="ratings"><span class="fa fa-star checked"></span><strong
+                        style="font-weight: bolder; color: rgb(71, 71, 71);"> 4.1</strong> (14,179)
+                </div>
+            </div>
+            <div class="price">
+                <div class="price-text">&#8377;329 <s>&#8377;999</s></div>
+
+            </div>
+            <hr>
+            <div class="button">
+                <diV class="left-flipkarticon">
+                    <img class="flipkart-image"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flipkart-icon.png">
+                </diV>
+                <div class="right-buynowbtn">
+                    <a class="buynowbtn" href="#">BUY NOW</a>
+
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+
+</html>
